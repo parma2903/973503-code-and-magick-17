@@ -18,21 +18,19 @@ function getElement(array) {
 function createWizard(names, surnames, coatColors, eyesColors) {
   var result = {
     name: getElement(names) + ' ' + getElement(surnames),
-    coatColor : getElement(coatColors),
-    eyesColor : getElement(eyesColors)
-  }
-  return result
+    coatColor: getElement(coatColors),
+    eyesColor: getElement(eyesColors)
+  };
+  return result;
 }
 
 function createWizards(num) {
   for (var i = 0; i < num; i++) {
     wizards.push(createWizard(NAMES, SURNAMES, COAT_COLORS, EYES_COLORS));
   }
-  return wizards
+  return wizards;
 }
 createWizards(numberOfWizards);
-
-console.log(wizards);
 
 var renderWizard = function (wizard) {
   var wizardElement = similarWizardTemplate.cloneNode(true);
@@ -42,7 +40,7 @@ var renderWizard = function (wizard) {
   wizardElement.querySelector('.wizard-eyes').style.fill = wizard.eyesColor;
 
   return wizardElement;
-}
+};
 
 var fragment = document.createDocumentFragment();
 
