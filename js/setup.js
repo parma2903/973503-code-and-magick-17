@@ -64,8 +64,8 @@ function createWizard(names, surnames, coatColors, eyesColors) {
 }
 
 function createWizards(num) {
-  var wizards = [];
-  for (var i = 0; i < num; i++) {
+  //var wizards = [];
+  for (var k = 0; k < num; k++) {
     wizards.push(createWizard(NAMES, SURNAMES, COAT_COLORS, EYES_COLORS));
   }
   return wizards;
@@ -79,7 +79,7 @@ function renderWizard(wizard) {
   wizardElement.querySelector('.wizard-eyes').style.fill = wizard.eyesColor;
 
   return wizardElement;
-};
+}
 
 function onPopupEscPress(evt) {
   if (evt.keyCode === 27) {
