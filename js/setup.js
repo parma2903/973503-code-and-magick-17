@@ -64,10 +64,11 @@ function createWizard(names, surnames, coatColors, eyesColors) {
 }
 
 function createWizards(num) {
+  var wizardsArray = [];
   for (var k = 0; k < num; k++) {
-    wizards.push(createWizard(NAMES, SURNAMES, COAT_COLORS, EYES_COLORS));
+    wizardsArray.push(createWizard(NAMES, SURNAMES, COAT_COLORS, EYES_COLORS));
   }
-  return wizards;
+  return wizardsArray;
 }
 
 function renderWizard(wizard) {
