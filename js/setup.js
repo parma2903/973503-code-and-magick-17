@@ -6,13 +6,12 @@ var COAT_COLORS = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161
 var EYES_COLORS = ['black', 'red', 'blue', 'yellow', 'green'];
 var FIREBALL_COLORS = ['#ee4830', '#30a8ee', '#5ce6c0', '#e848d5', '#e6e848'];
 
-var userDialog = document.querySelector('.setup');
-var similarListElement = userDialog.querySelector('.setup-similar-list');
+var setup = document.querySelector('.setup');
+var similarListElement = setup.querySelector('.setup-similar-list');
 var similarWizardTemplate = document.querySelector('#similar-wizard-template').content.querySelector('.setup-similar-item');
 var fragment = document.createDocumentFragment();
 var numberOfWizards = 4;
 var wizards = createWizards(numberOfWizards);
-var setup = document.querySelector('.setup');
 var setupOpen = document.querySelector('.setup-open');
 var setupClose = document.querySelector('.setup-close');
 var wizardCoat = setup.querySelector('.wizard-coat');
@@ -28,7 +27,11 @@ for (var i = 0; i < wizards.length; i++) {
 }
 
 similarListElement.appendChild(fragment);
-userDialog.querySelector('.setup-similar').classList.remove('hidden');
+setup.querySelector('.setup-similar').classList.remove('hidden');
+
+changesColorElementOnClick(wizardCoat, COAT_COLORS, coatColorInput);
+changesColorElementOnClick(wizardEye, EYES_COLORS, eyesColorInput);
+changesColorElementOnClick(wizardFireball, FIREBALL_COLORS, fireballColorInput);
 
 setupOpen.addEventListener('click', function () {
   openPopup();
@@ -47,6 +50,27 @@ setupClose.addEventListener('click', function () {
 setupClose.addEventListener('keydown', function (evt) {
   if (evt.keyCode === 13) {
     closePopup();
+  }
+});
+
+userNameInput.addEventListener('invalid', function () {
+  if (userNameInput.validity.tooShort) {
+    userNameInput.setCustomValidity('Имя должно состоять минимум из 2-х символов');
+  } else if (userNameInput.validity.tooLong) {
+    userNameInput.setCustomValidity('Имя не должно превышать 25-ти символов');
+  } else if (userNameInput.validity.valueMissing) {
+    userNameInput.setCustomValidity('Обязательное поле');
+  } else {
+    userNameInput.setCustomValidity('');
+  }
+});
+
+userNameInput.addEventListener('input', function (evt) {
+  var target = evt.target;
+  if (target.value.length < 2) {
+    target.setCustomValidity('Имя должно состоять минимум из 2-х символов');
+  } else {
+    target.setCustomValidity('');
   }
 });
 
@@ -99,17 +123,15 @@ function closePopup() {
 
 function changesColorElementOnClick(wizardElement, colorArray, input) {
   var count = 1;
+  var fireballCount = 1;
   wizardElement.addEventListener('click', function () {
-
     wizardElement.style.fill = colorArray[count++];
     if (count >= colorArray.length) {
       count = 0;
     }
     input.value = wizardElement.style.fill;
   });
-  var fireballCount = 1;
   wizardFireball.addEventListener('click', function () {
-
     wizardFireball.style.backgroundColor = FIREBALL_COLORS[fireballCount++];
     if (fireballCount >= FIREBALL_COLORS.length) {
       fireballCount = 0;
@@ -117,28 +139,3 @@ function changesColorElementOnClick(wizardElement, colorArray, input) {
     fireballColorInput.value = FIREBALL_COLORS[fireballCount++];
   });
 }
-
-changesColorElementOnClick(wizardCoat, COAT_COLORS, coatColorInput);
-changesColorElementOnClick(wizardEye, EYES_COLORS, eyesColorInput);
-changesColorElementOnClick(wizardFireball, FIREBALL_COLORS, fireballColorInput);
-
-userNameInput.addEventListener('invalid', function () {
-  if (userNameInput.validity.tooShort) {
-    userNameInput.setCustomValidity('Имя должно состоять минимум из 2-х символов');
-  } else if (userNameInput.validity.tooLong) {
-    userNameInput.setCustomValidity('Имя не должно превышать 25-ти символов');
-  } else if (userNameInput.validity.valueMissing) {
-    userNameInput.setCustomValidity('Обязательное поле');
-  } else {
-    userNameInput.setCustomValidity('');
-  }
-});
-
-userNameInput.addEventListener('input', function (evt) {
-  var target = evt.target;
-  if (target.value.length < 2) {
-    target.setCustomValidity('Имя должно состоять минимум из 2-х символов');
-  } else {
-    target.setCustomValidity('');
-  }
-});
