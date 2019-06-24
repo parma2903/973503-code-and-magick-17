@@ -21,6 +21,8 @@ var userNameInput = setup.querySelector('.setup-user-name');
 var coatColorInput = setup.querySelector('[name=coat-color]');
 var eyesColorInput = setup.querySelector('[name=eyes-color]');
 var fireballColorInput = setup.querySelector('[name=fireball-color]');
+var setupTop = '80px';
+var setupLeft = '50%';
 
 for (var i = 0; i < wizards.length; i++) {
   fragment.appendChild(renderWizard(wizards[i]));
@@ -119,6 +121,8 @@ function openPopup() {
 function closePopup() {
   setup.classList.add('hidden');
   document.removeEventListener('keydown', onPopupEscPress);
+  setup.style.top = setupTop;
+  setup.style.left = setupLeft;
 }
 
 function changesColorElementOnClick(wizardElement, colorArray, input) {
