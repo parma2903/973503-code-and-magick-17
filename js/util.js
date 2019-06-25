@@ -1,4 +1,5 @@
 'use strict';
+var setup = document.querySelector('.setup');
 
 (function () {
   function getElement(array) {
@@ -6,6 +7,7 @@
   }
 
   window.util = {
-    getElement: getElement
+    getElement: getElement,
+    setup: setup
   };
 })();
