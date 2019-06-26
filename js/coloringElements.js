@@ -1,9 +1,8 @@
 'use strict';
 
 (function () {
-  /* var setup = document.querySelector('.setup');*/
-  var wizardFireball = window.util.setup.querySelector('.setup-fireball-wrap');
-  var fireballColorInput = window.util.setup.querySelector('[name=fireball-color]');
+  var wizardFireball = window.setup.querySelector('.setup-fireball-wrap');
+  var fireballColorInput = window.setup.querySelector('[name=fireball-color]');
 
   function changesColorElementOnClick(wizardElement, colorArray, input) {
     var count = 1;

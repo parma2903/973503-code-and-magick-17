@@ -1,17 +1,16 @@
 'use strict';
 (function () {
-  /*  var setup = document.querySelector('.setup');*/
   var setupOpen = document.querySelector('.setup-open');
   var setupClose = document.querySelector('.setup-close');
-  var wizardCoat = window.util.setup.querySelector('.wizard-coat');
-  var wizardEye = window.util.setup.querySelector('.wizard-eyes');
-  var userNameInput = window.util.setup.querySelector('.setup-user-name');
-  var coatColorInput = window.util.setup.querySelector('[name=coat-color]');
-  var eyesColorInput = window.util.setup.querySelector('[name=eyes-color]');
+  var wizardCoat = window.setup.querySelector('.wizard-coat');
+  var wizardEye = window.setup.querySelector('.wizard-eyes');
+  var userNameInput = window.setup.querySelector('.setup-user-name');
+  var coatColorInput = window.setup.querySelector('[name=coat-color]');
+  var eyesColorInput = window.setup.querySelector('[name=eyes-color]');
   var setupTop = '80px';
   var setupLeft = '50%';
 
-  window.util.setup.querySelector('.setup-similar').classList.remove('hidden');
+  window.setup.querySelector('.setup-similar').classList.remove('hidden');
 
   window.coloringElements(wizardCoat, window.wizardData.COAT_COLORS, coatColorInput);
   window.coloringElements(wizardEye, window.wizardData.EYES_COLORS, eyesColorInput);
@@ -65,15 +64,15 @@
   }
 
   function openPopup() {
-    window.util.setup.classList.remove('hidden');
+    window.setup.classList.remove('hidden');
     document.addEventListener('keydown', onPopupEscPress);
   }
 
   function closePopup() {
-    window.util.setup.classList.add('hidden');
+    window.setup.classList.add('hidden');
     document.removeEventListener('keydown', onPopupEscPress);
-    window.util.setup.style.top = setupTop;
-    window.util.setup.style.left = setupLeft;
+    window.setup.style.top = setupTop;
+    window.setup.style.left = setupLeft;
   }
 
 })();
