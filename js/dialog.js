@@ -7,6 +7,7 @@
   var shopElement = document.querySelector('.setup-artifacts-shop');
   var draggedItem = null;
   var artifactsElement = document.querySelector('.setup-artifacts');
+  var form = document.querySelector('.setup-wizard-form');
 
   dialogHandler.addEventListener('mousedown', function (evt) {
     evt.preventDefault();
@@ -81,4 +82,13 @@
     evt.target.style.backgroundColor = '';
     evt.preventDefault();
   });
+
+  form.addEventListener('submit', function (evt) {
+    window.backend.save(onFormSubmit(evt), window.backend.errorHandler, new FormData(form));
+  });
+
+  function onFormSubmit(evt) {
+    window.closePopup();
+    evt.preventDefault();
+  }
 })();

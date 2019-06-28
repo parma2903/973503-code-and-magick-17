@@ -27,12 +27,12 @@
   });
 
   setupClose.addEventListener('click', function () {
-    closePopup();
+    window.closePopup();
   });
 
   setupClose.addEventListener('keydown', function (evt) {
     if (evt.keyCode === 13) {
-      closePopup();
+      window.closePopup();
     }
   });
 
@@ -59,7 +59,7 @@
 
   function onPopupEscPress(evt) {
     if (evt.keyCode === 27) {
-      closePopup();
+      window.closePopup();
     }
   }
 
@@ -68,11 +68,11 @@
     document.addEventListener('keydown', onPopupEscPress);
   }
 
-  function closePopup() {
+  window.closePopup = function () {
     window.setup.classList.add('hidden');
     document.removeEventListener('keydown', onPopupEscPress);
     window.setup.style.top = setupTop;
     window.setup.style.left = setupLeft;
-  }
+  };
 
 })();

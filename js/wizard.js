@@ -6,14 +6,14 @@
   var COAT_COLORS = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)', 'rgb(56, 159, 117)', 'rgb(215, 210, 55)', 'rgb(0, 0, 0)'];
   var EYES_COLORS = ['black', 'red', 'blue', 'yellow', 'green'];
   var FIREBALL_COLORS = ['#ee4830', '#30a8ee', '#5ce6c0', '#e848d5', '#e6e848'];
-  var numberOfWizards = 4;
+  var NUMBER_OF_WIZARDS = 4;
 
   window.wizardData = {
+    NUMBER_OF_WIZARDS: NUMBER_OF_WIZARDS,
     NAMES: NAMES,
     SURNAMES: SURNAMES,
     COAT_COLORS: COAT_COLORS,
     EYES_COLORS: EYES_COLORS,
-    FIREBALL_COLORS: FIREBALL_COLORS,
-    numberOfWizards: numberOfWizards
+    FIREBALL_COLORS: FIREBALL_COLORS
   };
 })();
