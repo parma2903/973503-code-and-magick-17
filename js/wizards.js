@@ -11,7 +11,7 @@
   function getWizard(wizards) {
     var fragment = document.createDocumentFragment();
 
-    for (var i = 0; i < 4; i++) {
+    for (var i = 0; i < window.wizardData.NUMBER_OF_WIZARDS; i++) {
       fragment.appendChild(renderWizard(wizards[i]));
     }
 

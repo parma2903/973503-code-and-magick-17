@@ -83,8 +83,8 @@
     evt.preventDefault();
   });
 
-  form.addEventListener('submit', function (evt) {
-    window.backend.save(onFormSubmit(evt), window.backend.errorHandler, new FormData(form));
+  form.addEventListener('submit', function () {
+    window.backend.save(onFormSubmit, window.backend.errorHandler, new FormData(form));
   });
 
   function onFormSubmit(evt) {
